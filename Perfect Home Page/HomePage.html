@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chris' Home Page</title>
+
+
+
+
+  <style>
+
+    body{
+      color:rgb(34, 85, 34);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+    }
+
+    h1 {
+      color:rgb(46, 185, 46);
+      text-decoration: underline;
+      text-transform: uppercase;
+      font-size: 3rem;
+    }
+
+    h2 {
+      color: rgb(42, 134, 42);
+      text-decoration: underline;
+      font-size: 1.75rem;
+    }
+
+    h3 {
+      color:rgb(46, 185, 46);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.5rem;
+    }
+
+    h4 {
+      color: rgb(255, 255, 255);
+      font-size: 1.75rem;
+      text-align: center;
+    }
+
+    div.a {
+      text-align: center;
+    }
+    div.b {
+      text-align: left;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    div {
+      color: #4d185c;
+      padding: 2rem;
+      margin: 0.5rem;
+    }
+
+    div a {
+      color: #bd2b2b;
+    }
+
+    .category{
+    background-color: rgb(17, 17, 19);
+    width: 10vw;
+    border: 0.25vw solid rgb(222, 224, 221);
+    padding: 0.75vw;
+    margin: 2vw;
+    display: inline-table;
+
+  }
+
+  #eightBall {
+    width: 8vw;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  #answer {
+    margin-top: 1vw;
+    font-size: 1.5rem;
+    min-height: 2rem;
+    color: white;
+    text-align: center;
+  }
+
+   #audio-container {
+    position: fixed;
+    top: 2vw;
+    left: 4vw;
+    display: flex;
+    gap: 3vw;
+    
+   
+  }
+
+  #playing-image {
+    display: none;
+    width: 7.5vw;
+    animation: shake 1s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+    
+  </style>
+
+</head>
+
+
+
+
+
+
+
+<body>
+
+  <body style="background-color: rgb(3, 3, 3);"></body>
+
+
+  <header>
+    <div class="a">
+    <h1>Welcome-</h1>
+    <h2>To Chris' Home Page!</h2>
+      
+  </header>
+
+  <div class="category">
+    <h3>PORTFOLIO</h3>
+    <p><a href="https://www.instagram.com/chrisu_art/">My art instagram page</a></p>
+    <p><a href="https://www.curseforge.com/members/averyangrygardengnome/projects">My Curseforge mod page</a></p>
+    <p><a href="https://sketchfab.com/A_Garden_Gnome">My Sketchfab page</a></p>
+
+  </div>
+
+  <div class="category">
+    <h3>TOOLS</h3>
+    <p><a href="https://image95.com/">Image95 image editor</a></p>
+    <p><a href="https://pomofocus.io/">Pomodo timer</a></p>
+    <p><a href="https://fi.pinterest.com/">Pinterest</a></p>
+  </div>
+  
+    <div class="category">
+    <h3>HOBBIES</h3>
+    <p><a href="https://www.harptabs.com/index.php">Harptabs</a></p>
+    <p><a href="https://oldschool.runescape.wiki/">OSRS Wiki</a></p>
+  </div>
+  
+  <div class="category">
+    <h3>SHOPPING</h3>
+    <p><a href="https://www.tori.fi/">Tori</a></p>
+    <p><a href="https://www.vinted.fi/">Vinted</a></p>
+  </div>
+
+  <div class="category">
+    <h3>ENTERTAINMENT</h3>
+    <p><a href="https://www.youtube.com/">Youtube</a></p>
+    <p><a href="https://www.twitch.tv/">Twitch</a></p>
+  </div>
+  
+  <div class="category">
+  <h3>THE 10%</h3>
+    <p><a href="https://duunitori.fi/">Duunitori</a></p>
+    <p><a href="https://www.nordjobb.org/sv/soek-jobb">Nordjobb</a></p>
+  </div>
+
+  <h4>⇘ Magic 8 Ball ⇙</h4>
+<img src="Magic8ball.png" id="eightBall" alt="Magic 8 Ball"/>
+<div id="answer"></div>
+
+<div id="audio-container">
+  <audio id="audio-controls" controls>
+    <source src="tunetank-jazz-cafe-background-348913.mp3" type="audio/mpeg"/>
+    Your browser does not support the audio element.
+  </audio>
+  <img id="playing-image" src="MrSax.png" alt="Saxophone"/>
+</div>
+
+
+
+
+
+<script>
+  const answers = [
+    "Yes", "No", "Maybe", "Mayhaps", "Not likely", "Ask again later", "Absolutely", "Doubtful", "Ask Antti", "Ana might know", "Noora knows the answer", 
+    "Valtteri's onto something", "Lily has an inkling", "Helmi's got you", "Jena knows", "Vix has a clue", "Meditate on it", "I'll be frank (I wanted to place a pic of Frank from 'it's always sunny in Philadelphia' here but I ran out of time), no clue",
+    "Niko would nod approvingly", "Definitely", "Better not tell you now", "Signs point to yes", "Very doubtful", "Why are you asking me bruh? I'm no smarter than you"
+  ];
+
+  const ball = document.getElementById('eightBall');
+  const answerDiv = document.getElementById('answer');
+
+  ball.addEventListener('click', () => {
+    const randomIndex = Math.floor(Math.random() * answers.length);
+    answerDiv.textContent = answers[randomIndex];
+  });
+  const audio = document.getElementById('audio-controls');
+  const img = document.getElementById('playing-image');
+
+  audio.addEventListener('play', () => {
+    img.style.display = 'block';
+  });
+
+  audio.addEventListener('pause', () => {
+    img.style.display = 'none';
+  });
+
+  audio.addEventListener('ended', () => {
+    img.style.display = 'none';
+  });
+
+</script>
+</body>
+</html>
