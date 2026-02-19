@@ -88,7 +88,7 @@
     text-align: center;
   }
 
-   #audio-music {
+   #audio-container {
     position: fixed;
     top: 2vw;
     left: 4vw;
@@ -98,27 +98,9 @@
    
   }
 
-  #audio-encouragement {
-    position: fixed;
-    top: 2vw;
-    right: 4vw;
-    display: flex;
-    gap: 3vw;
-    flex-direction: row-reverse;
-   
-  }
-
   #playing-image {
     display: none;
     width: 7.5vw;
-    animation: shake 1s;
-    animation-iteration-count: infinite;
-  }
-
-   #animated-image {
-    display: none;
-    width: 8vw;
-    height: auto;
     animation: shake 1s;
     animation-iteration-count: infinite;
   }
@@ -199,23 +181,15 @@
   </div>
 
   <h4>⇘ Magic 8 Ball ⇙</h4>
-<img src="Images/Magic8ball.png" id="eightBall" alt="Magic 8 Ball"/>
+<img src="Magic8ball.png" id="eightBall" alt="Magic 8 Ball"/>
 <div id="answer"></div>
 
-<div id="audio-music">
-  <audio id="audio-music-controls" controls>
-    <source src="Audio\tunetank-jazz-cafe-background-348913.mp3" type="audio/mpeg"/>
+<div id="audio-container">
+  <audio id="audio-controls" controls>
+    <source src="\Audio\tunetank-jazz-cafe-background-348913.mp3" type="audio/mpeg"/>
     Your browser does not support the audio element.
   </audio>
-  <img id="playing-image" src="Images/MrSax.png" alt="Saxophone"/>
-</div>
-
-<div id="audio-encouragement">
-  <audio id="audio-encouragement-controls" controls>
-    <source src="Audio\Encouragement.mp3" type="audio/mpeg"/>
-    Your browser does not support the audio element.
-  </audio>
-  <img id="animated-image" src="Images/Image1.png" alt="Frame" width="100vw" height="100vw"/>
+  <img id="playing-image" src="MrSax.png" alt="Saxophone"/>
 </div>
 
 
@@ -236,10 +210,7 @@
     const randomIndex = Math.floor(Math.random() * answers.length);
     answerDiv.textContent = answers[randomIndex];
   });
-
-
-  //Saxophone
-  const audio = document.getElementById('audio-music-controls');
+  const audio = document.getElementById('audio-controls');
   const img = document.getElementById('playing-image');
 
   audio.addEventListener('play', () => {
@@ -253,49 +224,6 @@
   audio.addEventListener('ended', () => {
     img.style.display = 'none';
   });
-
-
-
-//Animations
-  const images = ["images/image1.png", "images/image2.png", "images/image3.png"];
-let currentIndex = 0;
-const imgElement = document.getElementById("animated-image");
-
-function changeImage() {
-  currentIndex = (currentIndex + 1) % images.length; 
-  const audio = document.getElementById('audio-encouragement-controls');
-  imgElement.src = images[currentIndex];
-}
-
-  const audioEncouragement = document.getElementById('audio-encouragement-controls');
-  const animatedImage = document.getElementById('animated-image');
-
-  let animationInterval = null;
-
-  audioEncouragement.addEventListener('play', () => {
-    animatedImage.style.display = 'block';
-    if (!animationInterval) {
-      animationInterval = setInterval(changeImage, 375);
-    }
-  });
-
-  audioEncouragement.addEventListener('pause', () => {
-    animatedImage.style.display = 'none';
-    if (animationInterval) {
-      clearInterval(animationInterval);
-      animationInterval = null;
-    }
-  });
-
-  audioEncouragement.addEventListener('ended', () => {
-    animatedImage.style.display = 'none';
-    if (animationInterval) {
-      clearInterval(animationInterval);
-      animationInterval = null;
-    }
-  });
-
-
 
 </script>
 </body>
